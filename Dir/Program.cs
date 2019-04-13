@@ -30,13 +30,13 @@ namespace Dir
 
                     if ((File.GetAttributes(f) & FileAttributes.Directory) == FileAttributes.Directory)
                     {
-                        output = String.Format("{0}\t{1}\t{2}", File.GetLastWriteTime(f), "<DIR>", f.Substring(f.LastIndexOf('\\') + 1));
+                        output = String.Format("{0}\t{1}\t\t{2}", File.GetLastWriteTime(f), "<DIR>", f.Substring(f.LastIndexOf('\\') + 1));
                         Console.WriteLine(output);
                     }
                     else
                     {
                         FileInfo fin = new FileInfo(f);
-                        output = String.Format("{0}\t\t{1} {2}", File.GetLastWriteTime(f), fin.Length, f.Substring(f.LastIndexOf('\\') + 1));
+                        output = String.Format("{0}\t\t{1,2} {2,5}", File.GetLastWriteTime(f), fin.Length, f.Substring(f.LastIndexOf('\\') + 1));
                         Console.WriteLine(output);
                     }
                 }
